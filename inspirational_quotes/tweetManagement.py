@@ -9,15 +9,19 @@ with warnings.catch_warnings():
 print('ready')
 import tensorflow as tf
 from textgenrnn import textgenrnn
-import util
 from datetime import datetime
 import os
 
-from tweetManagementQuotes import first_line as first_line_quote
-from tweetManagementAuthors import first_line as first_line_author
+import os.getcwd('util')
 
-combined = first_line_quote + '/n' + first_line_author
+def getTweetThenCombine():
+    from tweetManagementQuotes import first_line as first_line_quote
+    from tweetManagementAuthors import first_line as first_line_author
 
-print('first_line_quote ',first_line_quote)
-print('first_line ',first_line_author)
-print('COMBINDED ',combined)
+    combined = first_line_quote + '/n' + first_line_author
+
+    print('first_line_quote ',first_line_quote)
+    print('first_line ',first_line_author)
+    print('COMBINDED ',combined)
+    return combined
+
