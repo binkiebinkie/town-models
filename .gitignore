@@ -4,4 +4,5 @@
 *.tar
 *.json
 *.hdf5
+*.pyc
 quotes.json

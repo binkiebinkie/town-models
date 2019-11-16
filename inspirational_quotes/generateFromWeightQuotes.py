@@ -16,7 +16,7 @@ import os
 # CONFIG for this file
 # If true will just print to console
 # otherwise to file
-small_generation = True
+small_generation = False
 # Are we generating authors or quotes?
 generating_quotes = True
 model_name = util.model_name_quotes
@@ -33,10 +33,7 @@ textgen = textgenrnn(
            '/config/' + config_name + '/{}'.format(model_name)).replace(os.sep, '/')),
     weights_path=((current_file_path +
                    '/config/' + config_name + '/{}_weights.hdf5'.format(model_name)).replace(os.sep, '/')),
-    vocab_path=((current_file_path +
-                 '/config/' + config_name + '/{}_vocab.json'.format(model_name)).replace(os.sep, '/')),
-    config_path=((current_file_path +
-                  '/config/' + config_name + '/{}_config.json'.format(model_name)).replace(os.sep, '/'))
+    
 )
 # SAVE GENERATED STUFF TO A FILE
 # changing the temperature schedule can result in wildly different output!

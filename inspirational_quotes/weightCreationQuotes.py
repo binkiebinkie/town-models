@@ -15,16 +15,16 @@ import tensorflow as tf
 
 model_cfg = {
     # Does it train from nothing or from a previous file/textgenrnn?
-    "new_model": False,
+    "new_model": True,
     # set to True if want to train a word-level model (requires more data and smaller max_length)
-    'word_level': True,
+    'word_level': False,
     # number of LSTM cells of each layer (128/256 recommended)
     'rnn_size': 128,
     'rnn_layers': 3,   # number of LSTM layers (>=2 recommended)
     # consider text both forwards and backward, can give a training boost
     'rnn_bidirectional': False,
     # number of tokens to consider before predicting the next (20-40 for characters, 5-10 for words recommended)
-    'max_length': 8,
+    'max_length': 30,
     # maximum number of words to model; the rest will be ignored (word-level model only)
     'max_words': 10000,
 }
