@@ -18,14 +18,14 @@ print('CURRENT FILE PATH ', current_file_path)
 
 # CONFIG
 # File you wanna combine with urban dictionary
-other_file = current_file_path + '/authors.txt'
+other_file = current_file_path + '/fullBabyNamesData.txt'
 with open(other_file, "r", encoding="utf-8") as other_opened_file_f:
     other_file_lines = other_opened_file_f.readlines()
 # How often you want urban dictionary to show up
 # MUST BE NEGATIVE
-urban_occurance = -5
+urban_occurance = -4
 # The name of the file you are generating
-new_file = current_file_path + '/authorsUrban.txt'
+new_file = current_file_path + '/urbanBabies.txt'
 
 urban_dictionary_file = current_file_path + '/urbanDictionaryWords.txt'
 with open(urban_dictionary_file, "r", encoding="utf-8") as ud_opened_f:
