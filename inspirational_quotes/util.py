@@ -1,3 +1,4 @@
+testing_inspirational_quotes = False
 model_name_authors = 'inspirational_quotes_authors'
 model_name_quotes = 'inspirational_quotes_quotes'
 dataset_file = "quotes_unmassaged.json"

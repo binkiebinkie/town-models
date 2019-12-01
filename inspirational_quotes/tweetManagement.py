@@ -13,14 +13,23 @@ from datetime import datetime
 import os
 
 
-def getTweetThenCombine():
+def getTweetThenCombineInspirationalQuotes():
     from .tweetManagementQuotes import getQuoteThenDelete
     from .tweetManagementAuthors import getAuthorThenDelete
 
     new_quote = getQuoteThenDelete()
     new_author = getAuthorThenDelete()
 
-    combined = new_quote + '- ' + new_author
+    combined = new_quote + '-' + new_author
 
-    print('COMBINDED ', combined)
     return combined
+
+
+def makeOneHundredTweetsInspirationalQuotes():
+    generatedCombinedTweets = []
+    for x in range(100):
+        generateCombinedTweet = getTweetThenCombineInspirationalQuotes()
+        generatedCombinedTweets.append(generateCombinedTweet)
+    print('lenghts of the generated one hundred tweets boy is ',
+          len(generatedCombinedTweets))
+    return generatedCombinedTweets

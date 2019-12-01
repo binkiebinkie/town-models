@@ -1,13 +1,13 @@
-from .tweetManagement import getTweetThenCombine
+from .tweetManagement import makeOneHundredTweetsInspirationalQuotes
 
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, jsonify
 
 inspirational_quotes_blueprint = Blueprint('inspirational_quotes', __name__)
 
 
 @inspirational_quotes_blueprint.route('/inspiration')
-def return_quote():
-    print('----------------------------------------------------------holaaa')
-    combinedTweets = getTweetThenCombine()
-    print('combinedTweets', combinedTweets)
-    return combinedTweets
+def return_inspirational_quotes():
+    print('------------------------------inspirational quotes')
+    oneHundredTweets = jsonify(makeOneHundredTweetsInspirationalQuotes())
+    print('oneHundredTweets', oneHundredTweets)
+    return oneHundredTweets

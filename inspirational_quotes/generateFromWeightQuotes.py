@@ -16,7 +16,7 @@ import os
 # CONFIG for this file
 # If true will just print to console
 # otherwise to file
-small_generation = False
+small_generation = util.testing_inspirational_quotes
 # Are we generating authors or quotes?
 generating_quotes = True
 model_name = util.model_name_quotes

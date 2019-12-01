@@ -29,9 +29,9 @@ def getQuoteThenDelete():
 
     # If the number of lines left is less than 10
     if num_lines < 10:
-        print('less than ten!! AHHHf')
+        print('There are less than 10 inspirational quotes left in txt file. Generating new quotes.')
         import inspirational_quotes.generateFromWeightQuotes
-        print('New Number of lines in results', sum(1 for line in open(file)))
+        print('New Number of quotes in results', sum(1 for line in open(file)))
 
     # If it's over 10 results
     # Get the first line

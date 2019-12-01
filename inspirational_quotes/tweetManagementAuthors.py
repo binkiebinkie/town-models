@@ -24,14 +24,13 @@ def getAuthorThenDelete():
 
     # Go to file and check the number of lines from the file
     num_lines = sum(1 for line in open(file))
-    print('Number of lines of results left in ',
-          model_name, ': ', num_lines)
 
     # If the number of lines left is less than 20
-    if num_lines < 20:
-        print('less than 20!! AHHHf')
+    if num_lines < 10:
+        print('There are less than 10 author names left in txt file. Generating new author names: ', num_lines)
         import inspirational_quotes.generateFromWeightAuthors
-        print('New Number of lines in results', sum(1 for line in open(file)))
+        print('New Number of new authors in results',
+              sum(1 for line in open(file)))
 
     # If it's over 20 results
     # Get the first line
