@@ -28,7 +28,8 @@ def getAuthorThenDelete():
     # If the number of lines left is less than 20
     if num_lines < 10:
         print('There are less than 10 author names left in txt file. Generating new author names: ', num_lines)
-        import inspirational_quotes.generateFromWeightAuthors
+        from inspirational_quotes.generateFromWeightAuthors import generatedFromWeightAuthorsFn
+        generatedFromWeightAuthorsFn()
         print('New Number of new authors in results',
               sum(1 for line in open(file)))
 

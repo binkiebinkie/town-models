@@ -24,8 +24,6 @@ def getQuoteThenDelete():
 
     # Go to file and check the number of lines from the file
     num_lines = sum(1 for line in open(file))
-    print('Number of lines of results left in ',
-          model_name, ': ', num_lines)
 
     # If the number of lines left is less than 10
     if num_lines < 10:
@@ -45,7 +43,5 @@ def getQuoteThenDelete():
 
     # print('New number of lines left in the results file: ',
     #       sum(1 for line in open(file)))
-
-    print(first_line_quotes)
 
     return first_line_quotes
