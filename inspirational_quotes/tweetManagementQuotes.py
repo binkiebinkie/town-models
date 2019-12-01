@@ -13,33 +13,39 @@ import inspirational_quotes.util as util
 from datetime import datetime
 import os
 
-# Where do we get the results file from
-model_name = util.model_name_quotes
-current_path = util.current_path
-current_file_path = os.path.realpath(current_path)
-file = (current_file_path + '/results/' +
-        model_name + '_gentext.txt').replace(os.sep, '/')
 
-# Go to file and check the number of lines from the file
-num_lines = sum(1 for line in open(file))
-print('Number of lines of results left in ',
-      model_name, ': ', num_lines)
+def getQuoteThenDelete():
+    # Where do we get the results file from
+    model_name = util.model_name_quotes
+    current_path = util.current_path
+    current_file_path = os.path.realpath(current_path)
+    file = (current_file_path + '/results/' +
+            model_name + '_gentext.txt').replace(os.sep, '/')
 
-# If the number of lines left is less than 10
-if num_lines < 10:
-    print('less than ten!! AHHHf')
-    import inspirational_quotes.generateFromWeightQuotes
-    print('New Number of lines in results', sum(1 for line in open(file)))
+    # Go to file and check the number of lines from the file
+    num_lines = sum(1 for line in open(file))
+    print('Number of lines of results left in ',
+          model_name, ': ', num_lines)
 
-# If it's over 10 results
-# Get the first line
-# then delete it!
-with open(file, 'r') as fin:
-    first_line_quotes = fin.readline()
-    data = fin.read().splitlines(True)
+    # If the number of lines left is less than 10
+    if num_lines < 10:
+        print('less than ten!! AHHHf')
+        import inspirational_quotes.generateFromWeightQuotes
+        print('New Number of lines in results', sum(1 for line in open(file)))
 
-with open(file, 'w') as fout:
-    fout.writelines(data[0:])
+    # If it's over 10 results
+    # Get the first line
+    # then delete it!
+    with open(file, 'r') as fin:
+        first_line_quotes = fin.readline()
+        data = fin.read().splitlines(True)
 
-# print('New number of lines left in the results file: ',
-#       sum(1 for line in open(file)))
+    with open(file, 'w') as fout:
+        fout.writelines(data[0:])
+
+    # print('New number of lines left in the results file: ',
+    #       sum(1 for line in open(file)))
+
+    print(first_line_quotes)
+
+    return first_line_quotes

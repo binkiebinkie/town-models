@@ -14,15 +14,13 @@ import os
 
 
 def getTweetThenCombine():
-    print('gettweethtnecombine')
+    from .tweetManagementQuotes import getQuoteThenDelete
+    from .tweetManagementAuthors import getAuthorThenDelete
 
-    from .tweetManagementQuotes import first_line_quotes as first_line_quote
-    print('first_line_quote ', first_line_quote)
+    new_quote = getQuoteThenDelete()
+    new_author = getAuthorThenDelete()
 
-    from .tweetManagementAuthors import first_line_authors as first_line_author
-    print('first_line ', first_line_author)
-
-    combined = first_line_quote + '/n' + first_line_author
+    combined = new_quote + '- ' + new_author
 
     print('COMBINDED ', combined)
     return combined
