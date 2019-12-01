@@ -8,7 +8,7 @@ with warnings.catch_warnings():
     from tensorflow.keras.preprocessing.text import Tokenizer
 print('ready')
 import tensorflow as tf
-import util
+import inspirational_quotes.util as util
 from textgenrnn import textgenrnn
 from datetime import datetime
 import os

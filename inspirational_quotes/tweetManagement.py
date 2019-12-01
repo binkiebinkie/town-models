@@ -12,16 +12,17 @@ from textgenrnn import textgenrnn
 from datetime import datetime
 import os
 
-import os.getcwd('util')
 
 def getTweetThenCombine():
-    from tweetManagementQuotes import first_line as first_line_quote
-    from tweetManagementAuthors import first_line as first_line_author
+    print('gettweethtnecombine')
+
+    from .tweetManagementQuotes import first_line_quotes as first_line_quote
+    print('first_line_quote ', first_line_quote)
+
+    from .tweetManagementAuthors import first_line_authors as first_line_author
+    print('first_line ', first_line_author)
 
     combined = first_line_quote + '/n' + first_line_author
 
-    print('first_line_quote ',first_line_quote)
-    print('first_line ',first_line_author)
-    print('COMBINDED ',combined)
+    print('COMBINDED ', combined)
     return combined
-

@@ -9,7 +9,7 @@ with warnings.catch_warnings():
 print('ready')
 import tensorflow as tf
 from textgenrnn import textgenrnn
-import util
+import inspirational_quotes.util as util
 from datetime import datetime
 import os
 
@@ -28,14 +28,14 @@ print('Number of lines of results left in ',
 # If the number of lines left is less than 20
 if num_lines < 20:
     print('less than 20!! AHHHf')
-    import generateFromWeightAuthors
+    import inspirational_quotes.generateFromWeightAuthors
     print('New Number of lines in results', sum(1 for line in open(file)))
 
 # If it's over 20 results
 # Get the first line
 # then delete it!
 with open(file, 'r') as fin:
-    first_line = fin.readline()
+    first_line_authors = fin.readline()
     data = fin.read().splitlines(True)
 
 with open(file, 'w') as fout:

@@ -8,7 +8,7 @@ with warnings.catch_warnings():
     from tensorflow.keras.preprocessing.text import Tokenizer
 print('ready')
 import tensorflow as tf
-import util
+import inspirational_quotes.util as util
 from textgenrnn import textgenrnn
 from datetime import datetime
 import os
@@ -33,7 +33,10 @@ textgen = textgenrnn(
            '/config/' + config_name + '/{}'.format(model_name)).replace(os.sep, '/')),
     weights_path=((current_file_path +
                    '/config/' + config_name + '/{}_weights.hdf5'.format(model_name)).replace(os.sep, '/')),
-    
+    vocab_path=((current_file_path +
+                 '/config/' + config_name + '/{}_vocab.json'.format(model_name)).replace(os.sep, '/')),
+    config_path=((current_file_path +
+                  '/config/' + config_name + '/{}_config.json'.format(model_name)).replace(os.sep, '/'))
 )
 # SAVE GENERATED STUFF TO A FILE
 # changing the temperature schedule can result in wildly different output!

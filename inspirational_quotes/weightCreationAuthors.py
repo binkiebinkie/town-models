@@ -7,7 +7,7 @@ with warnings.catch_warnings():
 print('ready')
 from pathlib import Path
 import os
-import util
+import inspirational_quotes.util as util
 from datetime import datetime
 from textgenrnn import textgenrnn
 import tensorflow as tf
