@@ -23,7 +23,7 @@ def generatedFromWeightAuthorsFn():
     model_name = util.model_name_authors
     config_name = 'authors'
 
-    current_path = util.current_path
+    current_path = util.current_path_dir
 
     current_file_path = os.path.realpath(current_path)
     file = (current_file_path + '/config/' +
@@ -44,11 +44,11 @@ def generatedFromWeightAuthorsFn():
     # the higher it is the more different it is
     temperature = util.temperature
     prefix = None
-    n = 2000
+    n = util.number_of_authors_to_generate
     # size - PROD
     # max_gen_length = 100000
     # size - TEST
-    max_gen_length = 2000
+    max_gen_length = util.number_of_authors_to_generate
 
     # FILE NAMING
     # If we want fancy datetime in name, use this code

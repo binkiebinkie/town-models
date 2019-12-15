@@ -8,7 +8,8 @@ with warnings.catch_warnings():
     from tensorflow.keras.preprocessing.text import Tokenizer
 print('ready')
 import tensorflow as tf
-import baby_names.util as util
+import util
+# import baby_names.util as util
 from textgenrnn import textgenrnn
 from datetime import datetime
 import os
@@ -18,12 +19,12 @@ def generatedFromWeightBabyNamesFn():
     # CONFIG for this file
     # If true will just print to console
     # otherwise to file
-    small_generation = util.testing_inspirational_quotes
+    small_generation = util.testing
     # Are we generating authors or quotes?
     model_name = util.model_name
     config_name = 'babyNames'
 
-    current_path = util.current_path
+    current_path = util.current_path_weight_generation
 
     current_file_path = os.path.realpath(current_path)
     file = (current_file_path + '/config/' +
@@ -31,13 +32,13 @@ def generatedFromWeightBabyNamesFn():
 
     textgen = textgenrnn(
         name=((current_file_path +
-               '/config/' + config_name + '/{}'.format(model_name)).replace(os.sep, '/')),
+               '/config/{}'.format(model_name)).replace(os.sep, '/')),
         weights_path=((current_file_path +
-                       '/config/' + config_name + '/{}_weights.hdf5'.format(model_name)).replace(os.sep, '/')),
+                       '/config/{}_weights.hdf5'.format(model_name)).replace(os.sep, '/')),
         vocab_path=((current_file_path +
-                     '/config/' + config_name + '/{}_vocab.json'.format(model_name)).replace(os.sep, '/')),
+                     '/config/{}_vocab.json'.format(model_name)).replace(os.sep, '/')),
         config_path=((current_file_path +
-                      '/config/' + config_name + '/{}_config.json'.format(model_name)).replace(os.sep, '/'))
+                      '/config/{}_config.json'.format(model_name)).replace(os.sep, '/'))
     )
     # SAVE GENERATED STUFF TO A FILE
     # changing the temperature schedule can result in wildly different output!
@@ -65,3 +66,6 @@ def generatedFromWeightBabyNamesFn():
         textgen.generate_to_file(
             current_file_path + '/results/' + gen_file, temperature=temperature, prefix=prefix, n=n, max_gen_length=max_gen_length)
         print('Finished generating new authors :) YOLO LOL')
+
+
+generatedFromWeightBabyNamesFn()

@@ -7,7 +7,8 @@ with warnings.catch_warnings():
 print('ready')
 from pathlib import Path
 import os
-import baby_names.util as util
+import util
+# import baby_names.util as util
 from datetime import datetime
 from textgenrnn import textgenrnn
 import tensorflow as tf
@@ -24,7 +25,7 @@ model_cfg = {
     # consider text both forwards and backward, can give a training boost
     'rnn_bidirectional': False,
     # number of tokens to consider before predicting the next (20-40 for characters, 5-10 for words recommended)
-    'max_length': 8,
+    'max_length': 20,
     # maximum number of words to model; the rest will be ignored (word-level model only)
     'max_words': 10000,
 }
@@ -45,24 +46,24 @@ train_cfg = {
 # TODO: Make it so each generated line is max 140 characters
 
 # File to train from
-file_name = util.generated_dataset_file_authors
+file_name = util.generated_dataset_file
 # Path of file to train from
-current_file_path = os.path.realpath(util.current_path)
+current_file_path = os.path.realpath(util.current_path_weight_generation)
 file = (current_file_path + '/datasets/' +
         file_name).replace(os.sep, '/')
 
 print('filefilefilefilefilefile', file)
 
 # change to set file name of resulting trained models/texts
-model_name = util.model_name_authors
+model_name = util.model_name
 textgen = textgenrnn(
-    name=current_file_path + '/config/authors/{}'.format(model_name)
-    weights_path=(current_file_path +
-                  '/config/authors/{}_weights.hdf5'.format(model_name)),
-    vocab_path=(current_file_path +
-                '/config/authors/{}_vocab.json'.format(model_name)),
-    config_path=(current_file_path +
-                 '/config/authors/{}_config.json'.format(model_name)),
+    name=current_file_path + '/config/{}'.format(model_name)
+    # weights_path=(current_file_path +
+    #               '/config/authors/{}_weights.hdf5'.format(model_name)),
+    # vocab_path=(current_file_path +
+    #             '/config/authors/{}_vocab.json'.format(model_name)),
+    # config_path=(current_file_path +
+    #              '/config/authors/{}_config.json'.format(model_name)),
 )
 
 # Training variable

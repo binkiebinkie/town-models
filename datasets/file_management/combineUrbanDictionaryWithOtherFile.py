@@ -23,7 +23,7 @@ with open(other_file, "r", encoding="utf-8") as other_opened_file_f:
     other_file_lines = other_opened_file_f.readlines()
 # How often you want urban dictionary to show up
 # MUST BE NEGATIVE
-urban_occurance = -4
+urban_occurance = -3
 # The name of the file you are generating
 new_file = current_file_path + '/urbanBabies.txt'
 
